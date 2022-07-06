@@ -1,9 +1,13 @@
 import 'dart:ui';
+import 'package:pilgramz/Pages/Settings.dart';
+import 'package:provider/provider.dart';
+
 import 'Utils/Theme Data.dart';
 import 'package:flutter/material.dart';
 import 'package:pilgramz/Pages/myHomePage.dart';
 
 void main(List<String> args) {
+  Provider.debugCheckInvalidValueType;
   runApp(const MyApp());
 }
 
@@ -13,26 +17,49 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = window.physicalSize.width;
+    ThemeData themedata = Theme.of(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pilgramz',
-      theme: ThemeData(
-        textTheme: screenWidth < 750 ? TEXT_THEME_SMALL : TEXT_THEME_DEFAULT,
-        fontFamily: "Ubuntu",
-        brightness: Brightness.light,
-        primaryColor: PRIMARY_COLOR_LIGHT,
-        secondaryHeaderColor: COLOR_GREY_CANVAS,
-      ),
-      darkTheme: ThemeData(
-        textTheme:
-            screenWidth < 750 ? TEXT_THEME_SMALL_DARK : TEXT_THEME_DEFAULT_DARK,
-        fontFamily: "Ubuntu",
-        brightness: Brightness.dark,
-        primaryColor: PRIMARY_COLOR_DARK,
-        secondaryHeaderColor: COLOR_GREY,
-      ),
-      themeMode: ThemeMode.dark,
-      home: const MyHomePage(),
+      theme: UITheme.lightTheme(screenWidth),
+      darkTheme: UITheme.darkTheme(screenWidth),
+      themeMode: ThemeMode.light,
+      home: MyHomePage(themedata: themedata),
+      routes: <String, WidgetBuilder>{
+        "settings": (context) => const SettingsPage(),
+        "main": (context) => MyHomePage(themedata: themedata),
+      },
     );
+  }
+}
+
+class UITheme {
+  static ThemeData lightTheme(double screenWidth) {
+    ThemeData theme = ThemeData(
+      textTheme: screenWidth < 750 ? TEXT_THEME_SMALL : TEXT_THEME_DEFAULT,
+      fontFamily: "Ubuntu",
+      brightness: Brightness.light,
+      primaryColor: PRIMARY_COLOR_LIGHT,
+      secondaryHeaderColor: COLOR_GREY_CANVAS,
+      iconTheme: const IconThemeData(color: Colors.black),
+      primaryIconTheme: const IconThemeData(color: Colors.black),
+      primaryColorDark: Colors.black,
+    );
+    return theme;
+  }
+
+  static ThemeData darkTheme(double screenWidth) {
+    ThemeData theme = ThemeData(
+      textTheme:
+          screenWidth < 750 ? TEXT_THEME_SMALL_DARK : TEXT_THEME_DEFAULT_DARK,
+      fontFamily: "Ubuntu",
+      brightness: Brightness.dark,
+      primaryColor: PRIMARY_COLOR_DARK,
+      secondaryHeaderColor: COLOR_GREY,
+      iconTheme: const IconThemeData(color: Colors.white),
+      primaryIconTheme: const IconThemeData(color: COLOR_GREY_CANVAS),
+      primaryColorDark: Colors.white,
+    );
+    return theme;
   }
 }

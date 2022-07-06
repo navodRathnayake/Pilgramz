@@ -5,7 +5,9 @@ import 'package:pilgramz/Utils/jason.dart';
 
 class PilgramzAppBar extends StatefulWidget {
   late double unit;
-  PilgramzAppBar({Key? key, required this.unit}) : super(key: key);
+  final ThemeData themedata;
+  PilgramzAppBar({Key? key, required this.unit, required this.themedata})
+      : super(key: key);
 
   @override
   State<PilgramzAppBar> createState() => _PilgramzAppBarState();
@@ -29,17 +31,20 @@ class _PilgramzAppBarState extends State<PilgramzAppBar> {
                 ProfileAvatar(unit: unitSize),
                 HorizontalSpace(width: unitSize / 4),
                 AppBarLabel(
-                    userName: profileData["userName"],
-                    firstName: profileData["firstName"],
-                    lastName: profileData["lastName"],
-                    unitSize: unitSize),
+                  userName: profileData["userName"],
+                  firstName: profileData["firstName"],
+                  lastName: profileData["lastName"],
+                  unitSize: unitSize,
+                  themedata: widget.themedata,
+                ),
               ],
             ),
           ),
           settings(
               width: unitSize * (5 / 4),
               height: unitSize * (5 / 4),
-              unitSize: unitSize),
+              unitSize: unitSize,
+              themedata: widget.themedata),
         ],
       ),
     );
@@ -83,7 +88,7 @@ Widget addStoryButton(double unit, context) {
     width: unit * (2 / 5),
     height: unit * (2 / 5),
     decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
+        color: COLOR_BLUE1,
         shape: BoxShape.circle,
         border: Border.all(color: COLOR_WHITE, width: 2)),
     child: Center(
@@ -99,21 +104,22 @@ Widget addStoryButton(double unit, context) {
 // ProfileAvatar
 
 class AppBarLabel extends StatelessWidget {
+  final ThemeData themedata;
   final String userName;
   final String firstName;
   final String lastName;
   late double unitSize;
-  AppBarLabel({
-    Key? key,
-    required this.userName,
-    required this.firstName,
-    required this.lastName,
-    required this.unitSize,
-  }) : super(key: key);
+  AppBarLabel(
+      {Key? key,
+      required this.userName,
+      required this.firstName,
+      required this.lastName,
+      required this.unitSize,
+      required this.themedata})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ThemeData themedata = Theme.of(context);
     return Container(
       height: unitSize * (5 / 4),
       child: Column(
@@ -136,19 +142,20 @@ class AppBarLabel extends StatelessWidget {
 // Name Section
 
 class settings extends StatelessWidget {
+  final ThemeData themedata;
   final double width;
   final double height;
   final double unitSize;
-  const settings(
-      {Key? key,
-      required this.width,
-      required this.height,
-      required this.unitSize})
-      : super(key: key);
+  const settings({
+    Key? key,
+    required this.width,
+    required this.height,
+    required this.unitSize,
+    required this.themedata,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ThemeData themedata = Theme.of(context);
     return Container(
       width: width,
       height: height,
@@ -161,7 +168,9 @@ class settings extends StatelessWidget {
                   color: Colors.black,
                   size: unitSize * (4 / 7),
                 ),
-                onPressed: () {})),
+                onPressed: () {
+                  Navigator.of(context).pushNamed("settings");
+                })),
       ),
     );
   }

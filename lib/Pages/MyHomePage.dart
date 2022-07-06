@@ -5,7 +5,8 @@ import 'package:pilgramz/Custom%20Widgets/Home/Subtitles.dart';
 import 'package:pilgramz/Custom%20Widgets/VerticalSpace.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  final ThemeData themedata;
+  const MyHomePage({Key? key, required this.themedata}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -28,11 +29,15 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               children: [
                 VerticalSpace(height: padding),
-                PilgramzAppBar(unit: padding),
+                PilgramzAppBar(unit: padding, themedata: themedata),
                 VerticalSpace(height: padding),
-                const SearchBar(),
+                SearchBar(themedata: themedata),
                 VerticalSpace(height: padding),
-                Subtitles(leadingText: "News & Events", tailText: "See All")
+                Subtitles(
+                  leadingText: "News & Events",
+                  tailText: "See All",
+                  themedata: themedata,
+                )
               ],
             ),
           ),

@@ -43,6 +43,8 @@ const TextTheme TEXT_THEME_DEFAULT = TextTheme(
   subtitle2:
       TextStyle(color: COLOR_GREY, fontSize: 12, fontWeight: FontWeight.w400),
   headlineLarge: TextStyle(color: COLOR_BLACK),
+  caption:
+      TextStyle(color: COLOR_BLACK, fontWeight: FontWeight.w700, fontSize: 30),
 );
 
 const TextTheme TEXT_THEME_SMALL = TextTheme(
@@ -76,6 +78,8 @@ const TextTheme TEXT_THEME_SMALL = TextTheme(
   subtitle2:
       TextStyle(color: COLOR_GREY, fontSize: 10, fontWeight: FontWeight.w400),
   headlineLarge: TextStyle(color: COLOR_BLACK),
+  caption:
+      TextStyle(color: COLOR_BLACK, fontWeight: FontWeight.w700, fontSize: 30),
 );
 
 const TextTheme TEXT_THEME_DEFAULT_DARK = TextTheme(
@@ -108,6 +112,8 @@ const TextTheme TEXT_THEME_DEFAULT_DARK = TextTheme(
   headlineLarge: TextStyle(
     color: COLOR_WHITE,
   ),
+  caption:
+      TextStyle(color: COLOR_WHITE, fontWeight: FontWeight.w700, fontSize: 30),
 );
 
 const TextTheme TEXT_THEME_SMALL_DARK = TextTheme(
@@ -140,4 +146,6 @@ const TextTheme TEXT_THEME_SMALL_DARK = TextTheme(
   headlineLarge: TextStyle(
     color: COLOR_WHITE,
   ),
+  caption:
+      TextStyle(color: COLOR_WHITE, fontWeight: FontWeight.w700, fontSize: 22),
 );

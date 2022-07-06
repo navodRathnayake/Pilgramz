@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pilgramz/Utils/Theme%20Data.dart';
 
 class SearchBar extends StatelessWidget {
-  const SearchBar({Key? key}) : super(key: key);
+  final ThemeData themedata;
+  const SearchBar({Key? key, required this.themedata}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ThemeData themedata = Theme.of(context);
     final Size size = MediaQuery.of(context).size;
     final double padding = (size.width) / 20;
     return Container(
