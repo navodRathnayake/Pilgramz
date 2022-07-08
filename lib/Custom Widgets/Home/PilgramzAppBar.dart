@@ -160,13 +160,15 @@ class settings extends StatelessWidget {
       width: width,
       height: height,
       child: CircleAvatar(
-        backgroundColor: themedata.secondaryHeaderColor,
+        backgroundColor: themedata.scaffoldBackgroundColor,
         child: Center(
             child: IconButton(
-                icon: Icon(
-                  Icons.settings,
-                  color: Colors.black,
-                  size: unitSize * (4 / 7),
+                icon: IconTheme(
+                  data: themedata.iconTheme,
+                  child: Icon(
+                    Icons.settings,
+                    size: unitSize * (4 / 7),
+                  ),
                 ),
                 onPressed: () {
                   Navigator.of(context).pushNamed("settings");

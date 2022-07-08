@@ -14,7 +14,7 @@ const COLOR_WHITE = Colors.white;
 const COLOR_DARK_BLUE = Color.fromRGBO(20, 25, 45, 1.0);
 const COLOR_RED = Color.fromRGBO(237, 34, 36, 0.8);
 const COLOR_GREY_CANVAS = Color.fromARGB(255, 194, 192, 192);
-
+//
 const TextTheme TEXT_THEME_DEFAULT = TextTheme(
   headline1:
       TextStyle(color: COLOR_BLACK, fontWeight: FontWeight.w700, fontSize: 30),
@@ -88,7 +88,7 @@ const TextTheme TEXT_THEME_DEFAULT_DARK = TextTheme(
   headline2:
       TextStyle(color: COLOR_WHITE, fontWeight: FontWeight.w700, fontSize: 22),
   headline3:
-      TextStyle(color: COLOR_BLACK, fontWeight: FontWeight.w700, fontSize: 20),
+      TextStyle(color: COLOR_WHITE, fontWeight: FontWeight.w700, fontSize: 20),
   headline4:
       TextStyle(color: COLOR_WHITE, fontWeight: FontWeight.w700, fontSize: 16),
   headline5:
@@ -122,7 +122,7 @@ const TextTheme TEXT_THEME_SMALL_DARK = TextTheme(
   headline2:
       TextStyle(color: COLOR_WHITE, fontWeight: FontWeight.w700, fontSize: 20),
   headline3:
-      TextStyle(color: COLOR_BLACK, fontWeight: FontWeight.w700, fontSize: 16),
+      TextStyle(color: COLOR_WHITE, fontWeight: FontWeight.w700, fontSize: 16),
   headline4:
       TextStyle(color: COLOR_WHITE, fontWeight: FontWeight.w700, fontSize: 14),
   headline5:

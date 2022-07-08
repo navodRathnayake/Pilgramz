@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Pilgramz',
       theme: UITheme.lightTheme(screenWidth),
       darkTheme: UITheme.darkTheme(screenWidth),
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
       home: MyHomePage(themedata: themedata),
       routes: <String, WidgetBuilder>{
         "settings": (context) => const SettingsPage(),

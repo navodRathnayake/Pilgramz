@@ -11,7 +11,7 @@ class SearchBar extends StatelessWidget {
     final double padding = (size.width) / 20;
     return Container(
       decoration: BoxDecoration(
-          color: themedata.secondaryHeaderColor,
+          color: themedata.scaffoldBackgroundColor,
           borderRadius: BorderRadius.all(Radius.circular(15))),
       child: Padding(
         padding: EdgeInsets.symmetric(
@@ -23,12 +23,14 @@ class SearchBar extends StatelessWidget {
               decoration: InputDecoration(
                 filled: false,
                 alignLabelWithHint: true,
-                prefixIcon: const Icon(
-                  Icons.search,
-                  color: Colors.black,
+                prefixIcon: IconTheme(
+                  data: themedata.iconTheme,
+                  child: Icon(
+                    Icons.search,
+                  ),
                 ),
                 border: InputBorder.none,
-                fillColor: themedata.secondaryHeaderColor,
+                fillColor: themedata.scaffoldBackgroundColor,
                 hintStyle: themedata.textTheme.headline3,
                 hintText: "Search Your Destinations",
                 prefixStyle: themedata.textTheme.bodyText2,

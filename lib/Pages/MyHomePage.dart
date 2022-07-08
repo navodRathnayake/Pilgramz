@@ -31,46 +31,65 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
     return Scaffold(
       body: SafeArea(
+        bottom: false,
+        top: false,
         child: Container(
           width: size.width,
           height: size.height,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: padding),
-            child: Column(
-              children: [
-                VerticalSpace(height: padding),
-                PilgramzAppBar(unit: padding, themedata: themedata),
-                VerticalSpace(height: padding),
-                SearchBar(themedata: themedata),
-                VerticalSpace(height: padding),
-                TabBar(
-                  controller: _tabController,
-                  tabs: const <Widget>[
-                    Tab(
-                      icon: Icon(Icons.filter_hdr),
-                    ),
-                    Tab(
-                      icon: Icon(Icons.hiking),
-                    ),
-                    Tab(
-                      icon: Icon(Icons.theater_comedy),
-                    )
-                  ],
-                ),
-                Expanded(
-                    child: Container(
-                  color: Colors.amber,
-                  child: TabBarView(
-                    controller: _tabController,
-                    children: const [
-                      Destinations(),
-                      Story(),
-                      Events(),
+          child: Column(
+            children: [
+              Container(
+                decoration: const BoxDecoration(
+                    color: Colors.teal,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(25),
+                      bottomRight: Radius.circular(25),
+                    )),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: padding),
+                  child: Column(
+                    children: [
+                      VerticalSpace(height: 2 * padding),
+                      PilgramzAppBar(unit: padding, themedata: themedata),
+                      VerticalSpace(height: padding),
+                      SearchBar(themedata: themedata),
+                      VerticalSpace(height: padding),
+                      TabBar(
+                        indicator: BoxDecoration(
+                            color: themedata.scaffoldBackgroundColor,
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              topRight: Radius.circular(15),
+                            )),
+                        controller: _tabController,
+                        tabs: const <Widget>[
+                          Tab(
+                            icon: Icon(Icons.filter_hdr),
+                          ),
+                          Tab(
+                            icon: Icon(Icons.hiking),
+                          ),
+                          Tab(
+                            icon: Icon(Icons.theater_comedy),
+                          )
+                        ],
+                      ),
                     ],
                   ),
-                ))
-              ],
-            ),
+                ),
+              ),
+              Expanded(
+                  child: Container(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: const [
+                    Destinations(),
+                    Story(),
+                    Events(),
+                  ],
+                ),
+              ))
+            ],
           ),
         ),
       ),
