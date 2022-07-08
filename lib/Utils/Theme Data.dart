@@ -4,8 +4,8 @@ const COLOR_BLACK = Color.fromRGBO(48, 47, 48, 1.0);
 const COLOR_GREY = Color.fromARGB(141, 168, 168, 168);
 //141
 
-const PRIMARY_COLOR_LIGHT = Color.fromARGB(255, 0, 0, 0);
-const PRIMARY_COLOR_DARK = Color.fromARGB(255, 255, 255, 255);
+const PRIMARY_COLOR_LIGHT = Color.fromARGB(255, 255, 255, 255);
+const PRIMARY_COLOR_DARK = Color.fromARGB(255, 0, 0, 0);
 
 const COLOR_BLUE1 = Color.fromRGBO(73, 136, 253, 1.0);
 const COLOR_BLUE2 = Color.fromARGB(255, 0, 89, 255);
