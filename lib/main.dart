@@ -1,10 +1,13 @@
 import 'dart:ui';
 import 'package:pilgramz/Pages/Settings.dart';
+import 'package:pilgramz/Root.dart';
 import 'package:provider/provider.dart';
 
 import 'Utils/Theme Data.dart';
 import 'package:flutter/material.dart';
 import 'package:pilgramz/Pages/myHomePage.dart';
+
+import 'testcases.dart';
 
 void main(List<String> args) {
   Provider.debugCheckInvalidValueType;
@@ -23,11 +26,12 @@ class MyApp extends StatelessWidget {
       title: 'Pilgramz',
       theme: UITheme.lightTheme(screenWidth),
       darkTheme: UITheme.darkTheme(screenWidth),
-      themeMode: ThemeMode.dark,
-      home: MyHomePage(themedata: themedata),
+      themeMode: ThemeMode.light,
+      home: const Root(),
       routes: <String, WidgetBuilder>{
         "settings": (context) => const SettingsPage(),
         "main": (context) => MyHomePage(themedata: themedata),
+        "root": (context) => const Root()
       },
     );
   }
@@ -42,7 +46,7 @@ class UITheme {
       primaryColor: PRIMARY_COLOR_LIGHT,
       secondaryHeaderColor: COLOR_GREY_CANVAS,
       iconTheme: const IconThemeData(color: Colors.black),
-      primaryIconTheme: const IconThemeData(color: Colors.black),
+      primaryIconTheme: const IconThemeData(color: Colors.white),
       primaryColorDark: Colors.black,
     );
     return theme;
@@ -57,7 +61,7 @@ class UITheme {
       primaryColor: PRIMARY_COLOR_DARK,
       secondaryHeaderColor: COLOR_GREY,
       iconTheme: const IconThemeData(color: Colors.white),
-      primaryIconTheme: const IconThemeData(color: COLOR_GREY_CANVAS),
+      primaryIconTheme: const IconThemeData(color: Colors.black),
       primaryColorDark: Colors.white,
     );
     return theme;

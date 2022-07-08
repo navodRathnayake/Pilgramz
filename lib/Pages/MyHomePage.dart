@@ -16,6 +16,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   late TabController _tabController;
+  int currentIndex = 0;
 
   @override
   void initState() {
@@ -93,6 +94,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.teal,
+          onPressed: () {},
+          child: IconTheme(
+            data: themedata.primaryIconTheme,
+            child: Icon(
+              Icons.pets,
+            ),
+          )),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );
   }
 }

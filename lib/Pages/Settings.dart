@@ -15,7 +15,7 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pushNamed("main");
+              Navigator.of(context).pushNamed("root");
             },
             icon: IconTheme(
               data: themedata.iconTheme,
@@ -37,28 +37,26 @@ class _SettingsPageState extends State<SettingsPage> {
         elevation: 0.0,
         backgroundColor: themedata.scaffoldBackgroundColor,
       ),
-      body: SafeArea(
-        child: ListView(
-          children: [
-            const Divider(),
-            ListTile(
-              leading: IconTheme(
-                data: themedata.primaryIconTheme,
-                child: const Icon(
-                  Icons.dark_mode,
-                ),
+      body: ListView(
+        children: [
+          const Divider(),
+          ListTile(
+            leading: IconTheme(
+              data: themedata.primaryIconTheme,
+              child: const Icon(
+                Icons.dark_mode,
               ),
-              title: Text(
-                "DARK MODE ON / OFF",
-                style: themedata.textTheme.headline1,
-              ),
-              subtitle: Text("Change your UI theme"),
-              trailing: Switch(value: true, onChanged: (isTrue) {}),
-              onTap: () {},
             ),
-            const Divider(),
-          ],
-        ),
+            title: Text(
+              "DARK MODE ON / OFF",
+              style: themedata.textTheme.headline1,
+            ),
+            subtitle: Text("Change your UI theme"),
+            trailing: Switch(value: true, onChanged: (isTrue) {}),
+            onTap: () {},
+          ),
+          const Divider(),
+        ],
       ),
     );
   }
