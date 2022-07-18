@@ -83,8 +83,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   child: Container(
                 child: TabBarView(
                   controller: _tabController,
-                  children: const [
-                    Destinations(),
+                  children: [
+                    Destinations(
+                        padding: padding,
+                        themedata: themedata,
+                        width: size.width),
                     Story(),
                     Events(),
                   ],

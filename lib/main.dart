@@ -60,7 +60,7 @@ class UITheme {
       brightness: Brightness.dark,
       primaryColor: PRIMARY_COLOR_DARK,
       secondaryHeaderColor: COLOR_GREY,
-      iconTheme: const IconThemeData(color: Colors.white),
+      iconTheme: const IconThemeData(color: Colors.black),
       primaryIconTheme: const IconThemeData(color: Colors.black),
       primaryColorDark: Colors.white,
     );
