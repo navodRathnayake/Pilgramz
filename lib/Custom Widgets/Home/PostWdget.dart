@@ -34,14 +34,14 @@ class _PostWidgetState extends State<PostWidget> {
   @override
   Widget build(BuildContext context) {
     final double innerPadding = widget.padding / 2;
-    final double widthHeight = (widget.width - (3 * widget.padding)) / 2;
+    final double widthHeight = (widget.width - (2 * widget.padding)) / 2;
     return Container(
       //width: widthHeight,
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
-          color: Colors.grey.withOpacity(0.5),
+          color: Colors.grey.withOpacity(0.3),
           spreadRadius: 5,
-          blurRadius: 7,
+          blurRadius: 10,
           offset: Offset(0, 3), // changes position of shadow
         ),
       ], borderRadius: BorderRadius.circular(25), color: Colors.white),
@@ -65,60 +65,59 @@ class _PostWidgetState extends State<PostWidget> {
           Card(
             color: Colors.white,
             elevation: 0.0,
-            child: Column(
+            child: Column(children: [
+              Container(
+                //width: widthHeight,
+                height: widthHeight,
+                child: CachedImage(imgUrl: widget.imgUrl),
+              ),
+            ]),
+          ),
+          Container(
+            child: Row(
               children: [
                 Container(
-                  //width: widthHeight,
-                  height: widthHeight,
-                  child: CachedImage(imgUrl: widget.imgUrl),
+                  width: 10,
+                  height: widthHeight / 3,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(15),
+                        topRight: Radius.circular(15),
+                      ),
+                      color: Colors.pink),
                 ),
-                Container(
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 10,
-                        height: widthHeight / 3,
-                        decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                            ),
-                            color: Colors.pink),
-                      ),
-                      HorizontalSpace(width: innerPadding),
-                      Expanded(
-                        child: Text(
-                          widget.postTitle,
-                          style: TextStyle(color: Colors.black),
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
+                HorizontalSpace(width: innerPadding),
+                Expanded(
+                  child: Text(
+                    widget.postTitle,
+                    style: TextStyle(color: Colors.black),
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                VerticalSpace(height: innerPadding),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    PostButtons(
-                        themedata: widget.themedata,
-                        child: Icon(Icons.favorite_border),
-                        amount: postData['likes']),
-                    PostButtons(
-                        themedata: widget.themedata,
-                        child: Icon(Icons.chat_bubble_outline),
-                        amount: postData['comments']),
-                    PostButtons(
-                        themedata: widget.themedata,
-                        child: Icon(Icons.forward_to_inbox),
-                        amount: postData['attachments']),
-                  ],
-                )
               ],
             ),
           ),
-          VerticalSpace(height: innerPadding * 2)
+          VerticalSpace(height: innerPadding),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              PostButtons(
+                  themedata: widget.themedata,
+                  child: Icon(Icons.favorite_border),
+                  amount: postData['likes']),
+              PostButtons(
+                  themedata: widget.themedata,
+                  child: Icon(Icons.chat_bubble_outline),
+                  amount: postData['comments']),
+              PostButtons(
+                  themedata: widget.themedata,
+                  child: Icon(Icons.forward_to_inbox),
+                  amount: postData['attachments']),
+            ],
+          ),
+
+          VerticalSpace(height: innerPadding * 2),
         ],
       ),
     );

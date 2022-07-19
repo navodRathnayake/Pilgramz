@@ -22,30 +22,71 @@ class Destinations extends StatefulWidget {
 class _DestinationsState extends State<Destinations> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      physics: BouncingScrollPhysics(),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: widget.padding),
-        child: Column(
-          children: [
-            //VerticalSpace(height: widget.padding),
-            //DestinationsSubTitle(themedata: widget.themedata),
-            //Divider(),
-            VerticalSpace(height: widget.padding),
-            PostWidget(
-              width: widget.width,
-              padding: widget.padding,
-              themedata: widget.themedata,
-              imgUrl: postData['imgUrl'],
-              postTitle: postData['title'],
-              likes: postData['likes'],
-              comments: postData['comments'],
-              attachments: postData['attachments'],
-            )
-          ],
-        ),
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 1,
+        crossAxisSpacing: widget.padding,
+        mainAxisSpacing: widget.padding,
       ),
+      itemBuilder: (BuildContext context, int index) {
+        return PostWidget(
+          width: widget.width - (4 * widget.padding),
+          padding: widget.padding,
+          themedata: widget.themedata,
+          imgUrl: pilgramzPost[index]["imgUrl"],
+          postTitle: pilgramzPost[index]['title'],
+          likes: pilgramzPost[index]['likes'],
+          comments: pilgramzPost[index]['comments'],
+          attachments: pilgramzPost[index]['attachments'],
+        );
+      },
+      itemCount: pilgramzPost.length,
     );
   }
 }
+
+
+
+// SingleChildScrollView(
+//       scrollDirection: Axis.vertical,
+//       physics: BouncingScrollPhysics(),
+//       child: Padding(
+//         padding: EdgeInsets.symmetric(horizontal: widget.padding),
+//         child: Column(
+//           children: [
+//             //VerticalSpace(height: widget.padding),
+//             //DestinationsSubTitle(themedata: widget.themedata),
+//             //Divider(),
+//             VerticalSpace(height: widget.padding),
+//             // PostWidget(
+//             //   width: widget.width,
+//             //   padding: widget.padding,
+//             //   themedata: widget.themedata,
+//             //   imgUrl: postData['imgUrl'],
+//             //   postTitle: postData['title'],
+//             //   likes: postData['likes'],
+//             //   comments: postData['comments'],
+//             //   attachments: postData['attachments'],
+//             // ),
+//             GridView.builder(
+//               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+//                 crossAxisCount: 1,
+//               ),
+//               itemBuilder: (BuildContext context, int index) {
+//                 return PostWidget(
+//                   width: widget.width,
+//                   padding: widget.padding,
+//                   themedata: widget.themedata,
+//                   imgUrl: pilgramzPost[index]["imgUrl"],
+//                   postTitle: pilgramzPost[index]['title'],
+//                   likes: pilgramzPost[index]['likes'],
+//                   comments: pilgramzPost[index]['comments'],
+//                   attachments: pilgramzPost[index]['attachments'],
+//                 );
+//               },
+//               itemCount: pilgramzPost.length,
+//             )
+//           ],
+//         ),
+//       ),
+//     );
