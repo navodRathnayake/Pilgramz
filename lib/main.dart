@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:pilgramz/Pages/LoginSignin.dart';
 import 'package:pilgramz/Pages/Settings.dart';
 import 'package:pilgramz/Root.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: UITheme.lightTheme(screenWidth),
       darkTheme: UITheme.darkTheme(screenWidth),
       themeMode: ThemeMode.light,
-      home: const Root(),
+      home: LoginSignin(themedata: themedata), //Root(),
       routes: <String, WidgetBuilder>{
         "settings": (context) => const SettingsPage(),
         "main": (context) => MyHomePage(themedata: themedata),

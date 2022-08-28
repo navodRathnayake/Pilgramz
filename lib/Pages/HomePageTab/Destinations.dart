@@ -23,14 +23,13 @@ class _DestinationsState extends State<Destinations> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 1,
-        crossAxisSpacing: widget.padding,
-        mainAxisSpacing: widget.padding,
+        mainAxisSpacing: 0.0,
       ),
       itemBuilder: (BuildContext context, int index) {
         return PostWidget(
-          width: widget.width - (4 * widget.padding),
+          width: widget.width - (2 * widget.padding),
           padding: widget.padding,
           themedata: widget.themedata,
           imgUrl: pilgramzPost[index]["imgUrl"],
