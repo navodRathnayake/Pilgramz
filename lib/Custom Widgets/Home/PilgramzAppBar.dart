@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pilgramz/API/Auth/AuthServices.dart';
 import 'package:pilgramz/Custom%20Widgets/HorizontalSpace.dart';
 import 'package:pilgramz/Utils/Theme%20Data.dart';
 import 'package:pilgramz/Utils/jason.dart';
@@ -60,7 +61,7 @@ class ProfileAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("Avatar ontap count");
+        AuthServices().signOut();
       },
       child: Container(
         //color: Colors.red,
