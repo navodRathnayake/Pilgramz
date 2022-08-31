@@ -12,6 +12,7 @@ class LoginSignin extends StatefulWidget {
 }
 
 class _LoginSigninState extends State<LoginSignin> {
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,6 +58,9 @@ class _LoginSigninState extends State<LoginSignin> {
                           primary: Color.fromARGB(255, 255, 255, 255),
                         ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
                         onPressed: () {
+                          setState(() {
+                            isLoading = true;
+                          });
                           AuthServices().signInWithGoogle();
                         },
                         child: const Text('Sign Up With Google'),
@@ -71,6 +75,13 @@ class _LoginSigninState extends State<LoginSignin> {
                           style: widget.themedata.textTheme.bodySmall),
                       Login(themedata: widget.themedata),
                     ],
+                  ),
+                  Container(
+                    child: isLoading
+                        ? CircularProgressIndicator(
+                            color: Colors.teal[50],
+                          )
+                        : null,
                   )
                 ],
               ),

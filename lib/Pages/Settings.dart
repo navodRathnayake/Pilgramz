@@ -73,13 +73,35 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             subtitle: Text("Logout from this account"),
             onTap: () {
-              AuthServices().signOut();
-              ScaffoldMessenger.of(context)
-                ..removeCurrentSnackBar()
-                ..showSnackBar(SnackBar(
-                  backgroundColor: Colors.white,
-                  content: const LogoutSnackBar(),
-                ));
+              showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Pilgramz Logout'),
+                  content: const Text(
+                      'Because of the security reasons, We are going to exit Pilgramz'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, 'Cancel'),
+                      child: const Text('Cancel'),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        AuthServices().signOut();
+                        exit(0);
+                      },
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              );
+
+              // AuthServices().signOut();
+              // ScaffoldMessenger.of(context)
+              //   ..removeCurrentSnackBar()
+              //   ..showSnackBar(SnackBar(
+              //     backgroundColor: Colors.white,
+              //     content: const LogoutSnackBar(),
+              //   ));
             },
           ),
         ],
