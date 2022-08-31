@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:pilgramz/API/Auth/AuthServices.dart';
+import 'package:pilgramz/SnackBars/LogoutSnackBar.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -56,6 +60,28 @@ class _SettingsPageState extends State<SettingsPage> {
             onTap: () {},
           ),
           const Divider(),
+          ListTile(
+            leading: IconTheme(
+              data: themedata.primaryIconTheme,
+              child: const Icon(
+                Icons.logout,
+              ),
+            ),
+            title: Text(
+              "Logout",
+              style: themedata.textTheme.headline1,
+            ),
+            subtitle: Text("Logout from this account"),
+            onTap: () {
+              AuthServices().signOut();
+              ScaffoldMessenger.of(context)
+                ..removeCurrentSnackBar()
+                ..showSnackBar(SnackBar(
+                  backgroundColor: Colors.white,
+                  content: const LogoutSnackBar(),
+                ));
+            },
+          ),
         ],
       ),
     );

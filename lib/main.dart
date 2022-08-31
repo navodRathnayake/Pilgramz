@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:pilgramz/API/Auth/AuthServices.dart';
 import 'package:pilgramz/Pages/LoginSignin.dart';
 import 'package:pilgramz/Pages/Settings.dart';
 import 'package:pilgramz/Root.dart';
@@ -10,8 +12,9 @@ import 'package:pilgramz/Pages/myHomePage.dart';
 
 import 'testcases.dart';
 
-void main(List<String> args) {
-  Provider.debugCheckInvalidValueType;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -28,11 +31,12 @@ class MyApp extends StatelessWidget {
       theme: UITheme.lightTheme(screenWidth),
       darkTheme: UITheme.darkTheme(screenWidth),
       themeMode: ThemeMode.light,
-      home: LoginSignin(themedata: themedata), //Root(),
+      home: AuthServices().handleAuthState(themedata), //Root(),
       routes: <String, WidgetBuilder>{
         "settings": (context) => const SettingsPage(),
         "main": (context) => MyHomePage(themedata: themedata),
-        "root": (context) => const Root()
+        "root": (context) => const Root(),
+        "Login": (context) => LoginSignin(themedata: themedata)
       },
     );
   }

@@ -1,5 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:pilgramz/API/Auth/AuthServices.dart';
 import 'package:pilgramz/Custom%20Widgets/VerticalSpace.dart';
 
 class LoginSignin extends StatefulWidget {
@@ -55,7 +56,9 @@ class _LoginSigninState extends State<LoginSignin> {
                           // Background color
                           primary: Color.fromARGB(255, 255, 255, 255),
                         ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-                        onPressed: () {},
+                        onPressed: () {
+                          AuthServices().signInWithGoogle();
+                        },
                         child: const Text('Sign Up With Google'),
                       ),
                     ),

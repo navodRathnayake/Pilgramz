@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pilgramz/Custom%20Widgets/HorizontalSpace.dart';
 import 'package:pilgramz/Utils/Theme%20Data.dart';
 import 'package:pilgramz/Utils/jason.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class PilgramzAppBar extends StatefulWidget {
   late double unit;
@@ -67,10 +68,11 @@ class ProfileAvatar extends StatelessWidget {
         child: Stack(
           children: [
             CircleAvatar(
-              radius: unit * (10 / 4),
-              backgroundImage: NetworkImage(profileData["profile"]),
-              //backgroundColor: Colors.black,
-            ),
+                radius: unit * (10 / 4),
+                backgroundImage: NetworkImage(FirebaseAuth.instance.currentUser!
+                    .photoURL!) //NetworkImage(profileData["profile"]),
+                //backgroundColor: Colors.black,
+                ),
             Positioned(
               bottom: 0.0,
               right: 0.0,
