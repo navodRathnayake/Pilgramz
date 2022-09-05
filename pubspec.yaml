@@ -43,6 +43,8 @@ dependencies:
   firebase_auth: ^3.7.0
   google_sign_in: ^5.4.1
 
+  carousel_slider: ^4.1.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

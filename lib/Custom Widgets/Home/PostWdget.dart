@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:pilgramz/Custom%20Widgets/BottomNavigationSheets/AboutPost.dart';
 import 'package:pilgramz/Custom%20Widgets/HorizontalSpace.dart';
 import 'package:pilgramz/Custom%20Widgets/VerticalSpace.dart';
 import 'package:pilgramz/Utils/Theme%20Data.dart';
@@ -35,94 +36,106 @@ class _PostWidgetState extends State<PostWidget> {
   Widget build(BuildContext context) {
     final double innerPadding = widget.padding / 2;
     final double widthHeight = (widget.width - (2 * widget.padding)) / 2;
-    return Container(
-      //width: widthHeight,
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 5,
-            blurRadius: 10,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ],
-        borderRadius: BorderRadius.circular(0),
-        color: Colors.white,
-      ),
-      child: Column(
-        children: [
-          //VerticalSpace(height: innerPadding / 2),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                child: IconTheme(
-                  data: widget.themedata.iconTheme,
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.more_horiz),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Card(
-            color: Colors.white,
-            elevation: 0.0,
-            child: Column(children: [
-              Container(
-                //width: widthHeight,
-                height: widthHeight,
-                child: CachedImage(imgUrl: widget.imgUrl),
-              ),
-            ]),
-          ),
-          Container(
-            child: Row(
+    return GestureDetector(
+      onTap: () {
+        showModalBottomSheet(
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          context: context,
+          builder: (context) {
+            return AboutPost();
+          },
+        );
+      },
+      child: Container(
+        //width: widthHeight,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.3),
+              spreadRadius: 5,
+              blurRadius: 10,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+          borderRadius: BorderRadius.circular(0),
+          color: Colors.white,
+        ),
+        child: Column(
+          children: [
+            //VerticalSpace(height: innerPadding / 2),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  width: 10,
-                  height: widthHeight / 3,
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(15),
-                        topRight: Radius.circular(15),
-                      ),
-                      color: Colors.pink),
-                ),
-                HorizontalSpace(width: innerPadding),
-                Expanded(
-                  child: Text(
-                    widget.postTitle,
-                    style: TextStyle(color: Colors.black),
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
+                  child: IconTheme(
+                    data: widget.themedata.iconTheme,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.more_horiz),
+                    ),
                   ),
                 ),
               ],
             ),
-          ),
-          VerticalSpace(height: innerPadding),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              PostButtons(
-                  themedata: widget.themedata,
-                  child: Icon(Icons.favorite_border),
-                  amount: postData['likes']),
-              PostButtons(
-                  themedata: widget.themedata,
-                  child: Icon(Icons.chat_bubble_outline),
-                  amount: postData['comments']),
-              PostButtons(
-                  themedata: widget.themedata,
-                  child: Icon(Icons.forward_to_inbox),
-                  amount: postData['attachments']),
-            ],
-          ),
+            Card(
+              color: Colors.white,
+              elevation: 0.0,
+              child: Column(children: [
+                Container(
+                  //width: widthHeight,
+                  height: widthHeight,
+                  child: CachedImage(imgUrl: widget.imgUrl),
+                ),
+              ]),
+            ),
+            Container(
+              child: Row(
+                children: [
+                  Container(
+                    width: 10,
+                    height: widthHeight / 3,
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(15),
+                          topRight: Radius.circular(15),
+                        ),
+                        color: Colors.pink),
+                  ),
+                  HorizontalSpace(width: innerPadding),
+                  Expanded(
+                    child: Text(
+                      widget.postTitle,
+                      style: TextStyle(color: Colors.black),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            VerticalSpace(height: innerPadding),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                PostButtons(
+                    themedata: widget.themedata,
+                    child: Icon(Icons.favorite_border),
+                    amount: postData['likes']),
+                PostButtons(
+                    themedata: widget.themedata,
+                    child: Icon(Icons.chat_bubble_outline),
+                    amount: postData['comments']),
+                PostButtons(
+                    themedata: widget.themedata,
+                    child: Icon(Icons.forward_to_inbox),
+                    amount: postData['attachments']),
+              ],
+            ),
 
-          VerticalSpace(height: innerPadding * 2),
-        ],
+            VerticalSpace(height: innerPadding * 2),
+          ],
+        ),
       ),
     );
   }

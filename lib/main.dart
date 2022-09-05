@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pilgramz/API/Auth/AuthServices.dart';
 import 'package:pilgramz/Pages/LoginSignin.dart';
+import 'package:pilgramz/Pages/PostView.dart';
 import 'package:pilgramz/Pages/Settings.dart';
 import 'package:pilgramz/Root.dart';
 import 'package:provider/provider.dart';
