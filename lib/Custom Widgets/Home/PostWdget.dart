@@ -43,7 +43,9 @@ class _PostWidgetState extends State<PostWidget> {
           backgroundColor: Colors.transparent,
           context: context,
           builder: (context) {
-            return AboutPost();
+            return AboutPost(
+              themedata: widget.themedata,
+            );
           },
         );
       },
