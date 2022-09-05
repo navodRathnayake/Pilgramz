@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pilgramz/Custom%20Widgets/BottomNavigationSheets/AboutPost.dart';
+import 'package:pilgramz/Custom%20Widgets/BottomNavigationSheets/DestinationSheet.dart';
 import 'package:pilgramz/Custom%20Widgets/HorizontalSpace.dart';
 import 'package:pilgramz/Custom%20Widgets/VerticalSpace.dart';
 import 'package:pilgramz/Utils/Theme%20Data.dart';
@@ -44,6 +45,18 @@ class _PostWidgetState extends State<PostWidget> {
           context: context,
           builder: (context) {
             return AboutPost(
+              themedata: widget.themedata,
+            );
+          },
+        );
+      },
+      onLongPress: () {
+        showModalBottomSheet(
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          context: context,
+          builder: (context) {
+            return DestinationSheet(
               themedata: widget.themedata,
             );
           },
