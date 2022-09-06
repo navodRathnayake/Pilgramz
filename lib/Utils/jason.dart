@@ -77,3 +77,32 @@ final destinationImages = [
   'https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/298983445_170847042134671_671301599657656509_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a26aad&_nc_ohc=E5v955cB--0AX95nDGx&_nc_ht=scontent.fcmb1-2.fna&oh=00_AT9H-4FGdrl1Sm58nsHPEW7xC-KW_wXF6myJVIorFZmFbA&oe=631AE65A',
   'https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/298837214_170847035468005_1102361373914625915_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=a26aad&_nc_ohc=KrCaE4TAEEsAX_2RBYu&tn=Psqdkd5p5rQav8wM&_nc_ht=scontent.fcmb1-2.fna&oh=00_AT8yMVQaThwaQlExIGynTCNmRLogIjW9W3pWjMzMNFLDAw&oe=631A91A1',
 ];
+
+final Map<String, dynamic> metData = {
+  'title': 'Eiffel Tower',
+  'location': 'Paris, France',
+  'objurl': '',
+  'description':
+      'The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel, whose company designed and built the tower'
+};
+
+var metaDataJson = [
+  {
+    'title': 'Eiffel Tower',
+    'location': 'Paris, France',
+    'imgurl':
+        'https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/299791558_3176851539248060_3957200181898328375_n.jpg?stp=dst-jpg_s600x600&_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=JgnSHdlCh2QAX8O9Sgq&_nc_ht=scontent.fcmb1-2.fna&oh=00_AT8xIVxEdmEcoGG4zDA70ZOSTRn-DlRyBDsCyq4MyU5HAA&oe=631BF886',
+    'objurl': '',
+    'description':
+        'The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel, whose company designed and built the tower'
+  },
+  {
+    'title': 'Pyramid',
+    'location': 'Egypt',
+    'objurl': '',
+    'imgurl':
+        'https://scontent.fcmb1-2.fna.fbcdn.net/v/t1.6435-9/50549113_2301744666502898_2714435493033934848_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=0debeb&_nc_ohc=GyRFWdYmUeQAX_NQNVZ&_nc_ht=scontent.fcmb1-2.fna&oh=00_AT9WTsukP696qNOifRuupTDvetzUg90jySySobJyhjbOtw&oe=633B36DF',
+    'description':
+        'The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel, whose company designed and built the tower'
+  }
+];
