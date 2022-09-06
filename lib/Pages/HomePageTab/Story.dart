@@ -71,7 +71,9 @@ class _ObjectCardState extends State<ObjectCard> {
           backgroundColor: Colors.transparent,
           context: context,
           builder: (context) {
-            return Environment();
+            return Environment(
+              themedata: widget.themedata,
+            );
           },
         );
       },
